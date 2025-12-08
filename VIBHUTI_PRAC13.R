@@ -1,7 +1,5 @@
 
-# R Script: Identifying and Handling Duplicates
-# Dataset: winequality-red.csv
-# Using distinct() from dplyr
+
 
 
 library(dplyr)
@@ -15,7 +13,7 @@ print("--- 1. Original Wine Dataset ---")
 print(head(wine_df))
 
 
-# 2. IDENTIFYING DUPLICATES (Exact row duplicates)
+# 2. IDENTIFYING DUPLICATES 
 
 duplicates_report <- wine_df %>%
   group_by(across(everything())) %>%  # group by ALL columns
@@ -37,8 +35,7 @@ print(clean_exact)
 
 # 4. HANDLING DUPLICATES BASED ON ONE COLUMN (Example: quality)
 
-# Scenario: Keep ONLY ONE ROW per quality level
-# This is like your 'unique customers' example.
+
 
 unique_quality <- wine_df %>%
   distinct(quality, .keep_all = TRUE)
